@@ -1,0 +1,3193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>فروشگاه اینترنتی دیجی کالا</title>
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/jquery.elevatezoom.js"></script>
+    <script src="js/jquery.flipTimer.js"></script>
+    <link href="css/flipTimer.css" rel="stylesheet">
+    <script src="js/jquery.mCustomScrollbar.js"></script>
+    <link href="js/jquery.mCustomScrollbar.css" rel="stylesheet">
+</head>
+<body style="margin: 0;background: #CCC">
+<style>
+    @font-face {
+        font-family: yekan;
+        src: url("fonts/yekan.ttf") format("truetype"),
+        url(fonts/yekan.eot?.iefix) format("embedded-opentype")
+    }
+
+    div, span, p, a, li, ul {
+        text-align: right;
+        direction: rtl
+    }
+
+    a {
+        text-decoration: none
+    }
+
+    .yekan {
+        font-family: yekan, serif
+    }
+
+    .fontsm {
+        font-size: 10.3pt
+    }
+
+    .fontmd {
+        font-size: 11.3pt
+    }
+
+    .fontlg {
+        font-size: 12.3pt
+    }
+
+    header {
+        background-color: #FFF
+    }
+
+    .header {
+        width: 1200px;
+        height: 100px;
+        margin: 0 auto;
+        padding-top: 15px
+    }
+
+    .header_right {
+        width: 720px;
+        float: right;
+        height: 100px
+    }
+
+    .header_right_top {
+        height: 40px;
+    }
+
+    .header_right_top .lock {
+        width: 20px;
+        height: 20px;
+        background: url("images/lock.png") no-repeat scroll 0 0;
+        display: block;
+        float: right
+    }
+
+    .header_right_top .login {
+        float: right;
+        margin-right: 10px
+    }
+
+    .header_right_top .sign_up {
+        width: 20px;
+        height: 20px;
+        background: url("images/signup.png") no-repeat scroll 0 0;
+        display: block;
+        float: right;
+        margin-right: 20px
+    }
+
+    .header_right_top .register {
+        float: right;
+        margin-right: 10px
+    }
+
+    .header_right_bottom {
+        height: 50px
+    }
+
+    .basket_top {
+        width: 190px;
+        height: 40px;
+        float: right
+    }
+
+    .basket_top_right {
+        width: 54px;
+        height: 100%;
+        background: #43C851 url(images/basket.png) no-repeat center;
+        float: right
+    }
+
+    .basket_top_left {
+        width: 96px;
+        height: 100%;
+        background: #38A844;
+        float: right;
+        padding: 0 20px;
+        line-height: 35px
+    }
+
+    .search_top span {
+        width: 42px;
+        height: 36px;
+        background: url("images/search.png") no-repeat center #CCC;
+        display: block;
+        position: absolute;
+        left: -35px;
+        top: 2px;
+        border-radius: 5px 0 0 5px
+    }
+
+    .search_top input {
+        width: 480px;
+        height: 32px;
+        margin-top: 2px;
+        border: 1px solid #EEE;
+        padding-right: 10px;
+        color: #686664;
+        border-radius: 0 5px 5px 0;
+        font-family: yekan, serif
+    }
+
+    .search_top {
+        width: 500px;
+        height: 40px;
+        float: right;
+        margin-right: 20px;
+        position: relative
+    }
+
+    .header_left {
+        float: left
+    }
+</style>
+<header>
+    <div class="header">
+        <div class="header_right">
+            <div class="header_right_top">
+                <span class="lock"></span>
+                <a class="login fontsm" href="/login">
+                    فروشگاه اینترنتی دیجی کالا، وارد شوید
+                </a>
+                <span class="sign_up"></span>
+                <a class="register fontsm" href="/register">
+                    ثبت نام کنید
+                </a>
+            </div>
+            <div class="header_right_bottom">
+                <div class="basket_top">
+                    <div class="basket_top_right"></div>
+                    <div class="basket_top_left">
+                        <span class="yekan fontsm" style="color: #FFF">سبد خرید</span>
+                        <span class="fontsm"
+                              style="width:25px;height: 25px;background:#EEE;text-align: center;display: block;float: left;margin-top: 7px;border-radius: 100%;line-height: 25px">0</span>
+                    </div>
+                </div>
+                <div class="search_top">
+                    <input type="text" placeholder="محصول، دسته یا برند مورد نظر خود را سرچ کنید...">
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div class="header_left">
+            <img src="images/logo.png">
+        </div>
+    </div>
+</header>
+<style>
+    nav {
+        width: 100%;
+        height: 40px;
+        background: #F7F8FA;
+        border-top: 1px solid #ECF3F3;
+        box-shadow: 0 2px 3px #AAA
+    }
+
+    .menu_top {
+        box-shadow: 1px 3px 4px #CCC;
+        -webkit-box-shadow: 1px 3px 4px #CCC;
+        -moz-box-shadow: 1px 3px 4px #CCC
+    }
+
+    ul {
+        margin: 0
+    }
+
+    li {
+        list-style: none
+    }
+
+    .menu_top {
+        width: 1200px;
+        height: 40px;
+        margin: auto
+    }
+
+    .menu_top > ul {
+        position: relative;
+        padding: 0
+    }
+
+    .menu_top > ul > li {
+        float: right;
+        height: 40px;
+        border-radius: 5px
+    }
+
+    .menu_top > ul > li a {
+        padding: 0 10px;
+        height: 40px;
+        display: block;
+        line-height: 36px;
+        font-size: 11pt
+    }
+
+    .menu_top > ul > li > ul {
+        position: absolute;
+        right: 0;
+        background-color: #FFF;
+        width: 1200px;
+        padding: 0;
+        box-shadow: 0 2px 3px #AAA;
+        display: none;
+        z-index: 2
+    }
+
+    .menu_top > ul > li > ul > li {
+        float: right
+    }
+
+    .menu_top > ul > li > ul > li > a {
+        padding: 5px 10px;
+        display: block
+    }
+
+    .menu_down_icon {
+        background: url("images/down.png") no-repeat scroll 0 0;
+        display: block;
+        float: left;
+        height: 4px;
+        margin-right: 5px;
+        margin-top: 17px;
+        width: 7px
+    }
+
+    .top_menu3_col {
+        width: 299px;
+        height: 100%;
+        float: right;
+        border-left: 1px solid #EEE
+    }
+
+    .top_menu3_col_ul li {
+        padding-right: 15px;
+    }
+
+    .top_menu3_col_ul li:first-child {
+        padding-right: 5px;
+        color: #6D95C6
+    }
+
+    .submenu3 {
+        width: 1200px;
+        height: 300px;
+        background: #FFF;
+        border-top: 1px solid #EEE;
+        position: absolute;
+        right: 0;
+        display: none;
+        z-index: 2
+    }
+
+    .active_menu {
+        background: #FFF;
+        box-shadow: 0 -1px 3px #EEE
+    }
+
+    .active_menu > a {
+
+    }
+
+    .menu_top a {
+        cursor: pointer
+    }
+</style>
+<nav>
+    <div class="menu_top">
+        <ul>
+            <li data-time="1" class="active_menu">
+                <a class="yekan">
+                    کالای دیجیتال
+                    <span class="menu_down_icon"></span>
+                </a>
+                <ul>
+                    <li data-time="3">
+                        <a class="yekan fontsm">
+                            موبایل
+                        </a>
+                        <div class="submenu3">
+                            <div class="top_menu3_col">
+                                <ul style="padding-right: 10px" class="top_menu3_col_ul">
+                                    <li class="yekan fontsm">گوشی موبایل</li>
+                                    <li class="yekan fontsm">Apple</li>
+                                    <li class="yekan fontsm">Samsung</li>
+                                </ul>
+                            </div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <img src="images/mobile.png" width="379" height="335"
+                                 style="position: absolute;left: 2px;bottom: 2px">
+                        </div>
+                    </li>
+                    <li data-time="4">
+                        <a class="yekan fontsm">
+                            تبلت و کتابخوان
+                        </a>
+                        <div class="submenu3">
+                            <div class="top_menu3_col">
+                                <ul style="padding-right: 10px" class="top_menu3_col_ul">
+                                    <li class="yekan fontsm">گوشی موبایل</li>
+                                    <li class="yekan fontsm">Apple</li>
+                                    <li class="yekan fontsm">Samsung</li>
+                                </ul>
+                            </div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <img src="images/tablet-ebook-reader.png" width="379" height="335"
+                                 style="position: absolute;left: 2px;bottom: 2px">
+                        </div>
+                    </li>
+                    <li data-time="5">
+                        <a class="yekan fontsm">
+                            لب تاب
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li data-time="2">
+                <a class="yekan">
+                    لوازم خانگی
+                    <span class="menu_down_icon"></span>
+                </a>
+                <ul>
+                    <li data-time="6">
+                        <a class="yekan fontsm">
+                            صوتی و تصویری
+                        </a>
+                        <div class="submenu3">
+                            <div class="top_menu3_col">
+                                <ul style="padding-right: 10px" class="top_menu3_col_ul">
+                                    <li class="yekan fontsm">تلویزیون</li>
+                                    <li class="yekan fontsm">کوچکتر از 32 اینچ</li>
+                                    <li class="yekan fontsm">بین 32 تا 42 اینچ</li>
+                                </ul>
+                            </div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <img src="images/video-audio-entertainment.png" width="379" height="335"
+                                 style="position: absolute;left: 2px;bottom: 2px">
+                        </div>
+                    </li>
+                    <li data-time="7">
+                        <a class="yekan fontsm">
+                            لوازم خانگی برقی
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li data-time="3" class="active_menu">
+                <a class="yekan">
+                    پوشاک
+                    <span class="menu_down_icon"></span>
+                </a>
+                <ul>
+                    <li data-time="3">
+                        <a class="yekan fontsm">
+                            موبایل
+                        </a>
+                        <div class="submenu3">
+                            <div class="top_menu3_col">
+                                <ul style="padding-right: 10px" class="top_menu3_col_ul">
+                                    <li class="yekan fontsm">گوشی موبایل</li>
+                                    <li class="yekan fontsm">Apple</li>
+                                    <li class="yekan fontsm">Samsung</li>
+                                </ul>
+                            </div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <img src="images/mobile.png" width="379" height="335"
+                                 style="position: absolute;left: 2px;bottom: 2px">
+                        </div>
+                    </li>
+                    <li data-time="4">
+                        <a class="yekan fontsm">
+                            تبلت و کتابخوان
+                        </a>
+                        <div class="submenu3">
+                            <div class="top_menu3_col">
+                                <ul style="padding-right: 10px" class="top_menu3_col_ul">
+                                    <li class="yekan fontsm">گوشی موبایل</li>
+                                    <li class="yekan fontsm">Apple</li>
+                                    <li class="yekan fontsm">Samsung</li>
+                                </ul>
+                            </div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <img src="images/tablet-ebook-reader.png" width="379" height="335"
+                                 style="position: absolute;left: 2px;bottom: 2px">
+                        </div>
+                    </li>
+                    <li data-time="5">
+                        <a class="yekan fontsm">
+                            لب تاب
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li data-time="4" class="active_menu">
+                <a class="yekan">
+                    خانه و آشپزخانه
+                    <span class="menu_down_icon"></span>
+                </a>
+                <ul>
+                    <li data-time="3">
+                        <a class="yekan fontsm">
+                            موبایل
+                        </a>
+                        <div class="submenu3">
+                            <div class="top_menu3_col">
+                                <ul style="padding-right: 10px" class="top_menu3_col_ul">
+                                    <li class="yekan fontsm">گوشی موبایل</li>
+                                    <li class="yekan fontsm">Apple</li>
+                                    <li class="yekan fontsm">Samsung</li>
+                                </ul>
+                            </div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <img src="images/mobile.png" width="379" height="335"
+                                 style="position: absolute;left: 2px;bottom: 2px">
+                        </div>
+                    </li>
+                    <li data-time="4">
+                        <a class="yekan fontsm">
+                            تبلت و کتابخوان
+                        </a>
+                        <div class="submenu3">
+                            <div class="top_menu3_col">
+                                <ul style="padding-right: 10px" class="top_menu3_col_ul">
+                                    <li class="yekan fontsm">گوشی موبایل</li>
+                                    <li class="yekan fontsm">Apple</li>
+                                    <li class="yekan fontsm">Samsung</li>
+                                </ul>
+                            </div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <img src="images/tablet-ebook-reader.png" width="379" height="335"
+                                 style="position: absolute;left: 2px;bottom: 2px">
+                        </div>
+                    </li>
+                    <li data-time="5">
+                        <a class="yekan fontsm">
+                            لب تاب
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li data-time="5" class="active_menu">
+                <a class="yekan">
+                    مادر و کودک
+                    <span class="menu_down_icon"></span>
+                </a>
+                <ul>
+                    <li data-time="3">
+                        <a class="yekan fontsm">
+                            موبایل
+                        </a>
+                        <div class="submenu3">
+                            <div class="top_menu3_col">
+                                <ul style="padding-right: 10px" class="top_menu3_col_ul">
+                                    <li class="yekan fontsm">گوشی موبایل</li>
+                                    <li class="yekan fontsm">Apple</li>
+                                    <li class="yekan fontsm">Samsung</li>
+                                </ul>
+                            </div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <img src="images/mobile.png" width="379" height="335"
+                                 style="position: absolute;left: 2px;bottom: 2px">
+                        </div>
+                    </li>
+                    <li data-time="4">
+                        <a class="yekan fontsm">
+                            تبلت و کتابخوان
+                        </a>
+                        <div class="submenu3">
+                            <div class="top_menu3_col">
+                                <ul style="padding-right: 10px" class="top_menu3_col_ul">
+                                    <li class="yekan fontsm">گوشی موبایل</li>
+                                    <li class="yekan fontsm">Apple</li>
+                                    <li class="yekan fontsm">Samsung</li>
+                                </ul>
+                            </div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <img src="images/tablet-ebook-reader.png" width="379" height="335"
+                                 style="position: absolute;left: 2px;bottom: 2px">
+                        </div>
+                    </li>
+                    <li data-time="5">
+                        <a class="yekan fontsm">
+                            لب تاب
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li data-time="6" class="active_menu">
+                <a class="yekan">
+                    سوپرمارکتی
+                    <span class="menu_down_icon"></span>
+                </a>
+                <ul>
+                    <li data-time="3">
+                        <a class="yekan fontsm">
+                            موبایل
+                        </a>
+                        <div class="submenu3">
+                            <div class="top_menu3_col">
+                                <ul style="padding-right: 10px" class="top_menu3_col_ul">
+                                    <li class="yekan fontsm">گوشی موبایل</li>
+                                    <li class="yekan fontsm">Apple</li>
+                                    <li class="yekan fontsm">Samsung</li>
+                                </ul>
+                            </div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <img src="images/mobile.png" width="379" height="335"
+                                 style="position: absolute;left: 2px;bottom: 2px">
+                        </div>
+                    </li>
+                    <li data-time="4">
+                        <a class="yekan fontsm">
+                            تبلت و کتابخوان
+                        </a>
+                        <div class="submenu3">
+                            <div class="top_menu3_col">
+                                <ul style="padding-right: 10px" class="top_menu3_col_ul">
+                                    <li class="yekan fontsm">گوشی موبایل</li>
+                                    <li class="yekan fontsm">Apple</li>
+                                    <li class="yekan fontsm">Samsung</li>
+                                </ul>
+                            </div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <img src="images/tablet-ebook-reader.png" width="379" height="335"
+                                 style="position: absolute;left: 2px;bottom: 2px">
+                        </div>
+                    </li>
+                    <li data-time="5">
+                        <a class="yekan fontsm">
+                            لب تاب
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li data-time="7" class="active_menu">
+                <a class="yekan">
+                    لوازم صنعتی
+                    <span class="menu_down_icon"></span>
+                </a>
+                <ul>
+                    <li data-time="3">
+                        <a class="yekan fontsm">
+                            موبایل
+                        </a>
+                        <div class="submenu3">
+                            <div class="top_menu3_col">
+                                <ul style="padding-right: 10px" class="top_menu3_col_ul">
+                                    <li class="yekan fontsm">گوشی موبایل</li>
+                                    <li class="yekan fontsm">Apple</li>
+                                    <li class="yekan fontsm">Samsung</li>
+                                </ul>
+                            </div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <img src="images/mobile.png" width="379" height="335"
+                                 style="position: absolute;left: 2px;bottom: 2px">
+                        </div>
+                    </li>
+                    <li data-time="4">
+                        <a class="yekan fontsm">
+                            تبلت و کتابخوان
+                        </a>
+                        <div class="submenu3">
+                            <div class="top_menu3_col">
+                                <ul style="padding-right: 10px" class="top_menu3_col_ul">
+                                    <li class="yekan fontsm">گوشی موبایل</li>
+                                    <li class="yekan fontsm">Apple</li>
+                                    <li class="yekan fontsm">Samsung</li>
+                                </ul>
+                            </div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <img src="images/tablet-ebook-reader.png" width="379" height="335"
+                                 style="position: absolute;left: 2px;bottom: 2px">
+                        </div>
+                    </li>
+                    <li data-time="5">
+                        <a class="yekan fontsm">
+                            لب تاب
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li data-time="8" class="active_menu">
+                <a class="yekan">
+                    ماشین آلات
+                    <span class="menu_down_icon"></span>
+                </a>
+                <ul>
+                    <li data-time="3">
+                        <a class="yekan fontsm">
+                            موبایل
+                        </a>
+                        <div class="submenu3">
+                            <div class="top_menu3_col">
+                                <ul style="padding-right: 10px" class="top_menu3_col_ul">
+                                    <li class="yekan fontsm">گوشی موبایل</li>
+                                    <li class="yekan fontsm">Apple</li>
+                                    <li class="yekan fontsm">Samsung</li>
+                                </ul>
+                            </div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <img src="images/mobile.png" width="379" height="335"
+                                 style="position: absolute;left: 2px;bottom: 2px">
+                        </div>
+                    </li>
+                    <li data-time="4">
+                        <a class="yekan fontsm">
+                            تبلت و کتابخوان
+                        </a>
+                        <div class="submenu3">
+                            <div class="top_menu3_col">
+                                <ul style="padding-right: 10px" class="top_menu3_col_ul">
+                                    <li class="yekan fontsm">گوشی موبایل</li>
+                                    <li class="yekan fontsm">Apple</li>
+                                    <li class="yekan fontsm">Samsung</li>
+                                </ul>
+                            </div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <img src="images/tablet-ebook-reader.png" width="379" height="335"
+                                 style="position: absolute;left: 2px;bottom: 2px">
+                        </div>
+                    </li>
+                    <li data-time="5">
+                        <a class="yekan fontsm">
+                            لب تاب
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li data-time="9" class="active_menu">
+                <a class="yekan">
+                    زیبایی و سلامت
+                    <span class="menu_down_icon"></span>
+                </a>
+                <ul>
+                    <li data-time="3">
+                        <a class="yekan fontsm">
+                            موبایل
+                        </a>
+                        <div class="submenu3">
+                            <div class="top_menu3_col">
+                                <ul style="padding-right: 10px" class="top_menu3_col_ul">
+                                    <li class="yekan fontsm">گوشی موبایل</li>
+                                    <li class="yekan fontsm">Apple</li>
+                                    <li class="yekan fontsm">Samsung</li>
+                                </ul>
+                            </div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <img src="images/mobile.png" width="379" height="335"
+                                 style="position: absolute;left: 2px;bottom: 2px">
+                        </div>
+                    </li>
+                    <li data-time="4">
+                        <a class="yekan fontsm">
+                            تبلت و کتابخوان
+                        </a>
+                        <div class="submenu3">
+                            <div class="top_menu3_col">
+                                <ul style="padding-right: 10px" class="top_menu3_col_ul">
+                                    <li class="yekan fontsm">گوشی موبایل</li>
+                                    <li class="yekan fontsm">Apple</li>
+                                    <li class="yekan fontsm">Samsung</li>
+                                </ul>
+                            </div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <img src="images/tablet-ebook-reader.png" width="379" height="335"
+                                 style="position: absolute;left: 2px;bottom: 2px">
+                        </div>
+                    </li>
+                    <li data-time="5">
+                        <a class="yekan fontsm">
+                            لب تاب
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li data-time="10" class="active_menu">
+                <a class="yekan">
+                    کتاب، لوازم التحریر و هنر
+                    <span class="menu_down_icon"></span>
+                </a>
+                <ul>
+                    <li data-time="3">
+                        <a class="yekan fontsm">
+                            موبایل
+                        </a>
+                        <div class="submenu3">
+                            <div class="top_menu3_col">
+                                <ul style="padding-right: 10px" class="top_menu3_col_ul">
+                                    <li class="yekan fontsm">گوشی موبایل</li>
+                                    <li class="yekan fontsm">Apple</li>
+                                    <li class="yekan fontsm">Samsung</li>
+                                </ul>
+                            </div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <img src="images/mobile.png" width="379" height="335"
+                                 style="position: absolute;left: 2px;bottom: 2px">
+                        </div>
+                    </li>
+                    <li data-time="4">
+                        <a class="yekan fontsm">
+                            تبلت و کتابخوان
+                        </a>
+                        <div class="submenu3">
+                            <div class="top_menu3_col">
+                                <ul style="padding-right: 10px" class="top_menu3_col_ul">
+                                    <li class="yekan fontsm">گوشی موبایل</li>
+                                    <li class="yekan fontsm">Apple</li>
+                                    <li class="yekan fontsm">Samsung</li>
+                                </ul>
+                            </div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <div class="top_menu3_col"></div>
+                            <img src="images/tablet-ebook-reader.png" width="379" height="335"
+                                 style="position: absolute;left: 2px;bottom: 2px">
+                        </div>
+                    </li>
+                    <li data-time="5">
+                        <a class="yekan fontsm">
+                            لب تاب
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+<style>
+    .main {
+        width: 1200px;
+        margin: 10px auto;
+        border-radius: 5px;
+        overflow: hidden
+    }
+
+    .main::after {
+        content: "";
+        clear: both;
+        display: block
+    }
+
+    .flipTimer {
+        right: -130px;
+        transform: scale(.3);
+        position: absolute;
+        top: -21px;
+        left: -165%
+    }
+
+    .flipTimer, .flipTimer div {
+        direction: ltr !important
+    }
+
+    .offer {
+        height: 60px;
+        background: #FFF5F5 url(images/amazing-offer.png) no-repeat 97% center;
+        position: relative;
+        border-radius: 5px
+    }
+
+    .offer .discount {
+        width: 180px;
+        height: 28px;
+        display: block;
+        position: absolute;
+        left: 250px;
+        top: 16px;
+        border-radius: 3px;
+        overflow: hidden
+    }
+
+    .offer .discount .right {
+        width: 105px;
+        height: 100%;
+        background: red;
+        float: right;
+        display: block
+    }
+
+    .offer .discount .left {
+        width: 75px;
+        height: 100%;
+        float: right;
+        display: block;
+        background: #E54949 no-repeat scroll 0 0
+    }
+
+    .offer .discount .right .number {
+        font-size: 17pt;
+        color: #FFF;
+        line-height: 20px;
+        padding-right: 10px
+    }
+
+    .offer .discount .right .tooman {
+        font-size: 9pt;
+        color: #FFF;
+        width: 42px;
+        display: inline-block;
+        line-height: 11px;
+        top: 4px;
+        margin-right: 18px;
+        position: relative;
+        height: 13px
+    }
+
+    .offer .left span {
+        color: #FFF;
+        font-family: yekan, serif;
+        font-size: 10.5pt;
+        padding-right: 21px;
+        line-height: 20px;
+        left: -1px;
+        text-align: center
+    }
+</style>
+<div class="main">
+    <div class="offer">
+        <span class="discount">
+             <span class="right yekan">
+                 <span class="number">46</span>
+                 <span class="tooman">هزار تومان</span>
+             </span>
+             <span class="left yekan">
+              <span>تخفیف</span>
+             </span>
+        </span>
+        <div class="flipTimer">
+            <div class="hours"></div>
+            <div class="minutes"></div>
+            <div class="seconds"></div>
+        </div>
+    </div>
+    <style>
+        .details {
+            float: right;
+            margin-top: 5px;
+            width: 100%;
+            background: #FFF;
+            box-shadow: 0 1px 3px #EEE
+        }
+
+        .details .right {
+            width: 450px;
+            float: right
+        }
+
+        .details .share {
+            float: right;
+            width: 100%;
+            padding: 20px 0
+        }
+
+        .details .share .social {
+            background: url("images/slices.png") no-repeat scroll -213px -187px;
+            width: 20px;
+            height: 20px;
+            display: block;
+            float: left;
+            margin-left: 6px
+        }
+
+        .details .share .addtofavorites {
+            background: url("images/slices.png") no-repeat scroll -160px -187px;
+            width: 20px;
+            height: 20px;
+            display: block;
+            float: left;
+            margin-left: 6px
+        }
+
+        .details .share .social {
+            background: url("images/slices.png") no-repeat scroll -213px -187px;
+            width: 20px;
+            height: 20px;
+            display: block;
+            float: left;
+            margin-left: 6px
+        }
+
+        .details .share .addtofavorites {
+            background: url("images/slices.png") no-repeat scroll -160px -187px;
+            width: 20px;
+            height: 20px;
+            display: block;
+            float: left;
+            margin-left: 6px
+        }
+
+        .details .gallery {
+            float: right;
+            width: 100%
+        }
+
+        .details .gallery ul {
+            float: right;
+            width: 100%;
+            padding: 0;
+            margin-top: 20px
+        }
+
+        .details .gallery .se_noghteh {
+            background: url("images/slices.png") no-repeat scroll -562px -28px;
+            width: 35px;
+            height: 17px;
+            display: block;
+            margin-top: 20px;
+            margin-right: 23px
+        }
+
+        .details .gallery ul li {
+            float: right;
+            width: 80px;
+            height: 71px;
+            border: 1px solid #EEE;
+            margin-right: 6px;
+            text-align: center;
+            padding-top: 10px;
+            border-radius: 5px
+        }
+    </style>
+    <div class="details">
+        <div class="right">
+            <div class="share">
+                <i class="social"></i>
+                <i class="addtofavorites"></i>
+            </div>
+            <div class="gallery">
+                <img class="zoomproduct" src="images/product5.jpg" data-zoom-image="images/product5.jpg">
+                <script>
+                    $('.zoomproduct').elevateZoom({
+                        'zoomWindowOffetx': -800,
+                        'scrollZoom': true,
+                        'easing': true,
+                        'easingDuration': 5000,
+                        'zoomwWindowWidth': 400,
+                        'lensFadeIn': true,
+                        'zoomWindowFadeIn': true,
+                        'tint': true,
+                        'lensShape': 'round',
+                        'tintColour': 'yellow'
+                    })
+                </script>
+                <ul>
+                    <li>
+                        <span class="se_noghteh"></span>
+                    </li>
+                    <li data-main-image="images/product.jpg">
+                        <img src="images/product5_1.jpg">
+                    </li>
+                    <li data-main-image="images/product.jpg">
+                        <img src="images/product5_2.jpg">
+                    </li>
+                    <li data-main-image="images/product.jpg">
+                        <img src="images/product5_3.jpg">
+                    </li>
+                    <li data-main-image="images/product.jpg">
+                        <img src="images/product5_4.jpg">
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <style>
+            .details .left {
+                width: 700px;
+                float: left;
+                padding: 20px 0
+            }
+
+            .details .left .title {
+                font-family: yekan, serif;
+                font-size: 13pt;
+                background: #EEE;
+                border-radius: 4px;
+                padding: 8px;
+                margin-top: -10px
+            }
+
+            .gray {
+                width: 55px;
+                height: 9px;
+                background: url("images/stars.png") repeat scroll 0 -9px;
+                margin: 0 auto;
+                position: relative
+            }
+
+            .red {
+                width: 50%;
+                height: 9px;
+                background: url("images/stars.png") repeat scroll 0 0;
+                margin: 0 auto;
+                position: absolute;
+                left: 0;
+                top: 0
+            }
+
+            .stars {
+                float: left;
+                margin-left: 12px
+            }
+
+            .rate {
+                float: left;
+                font-size: 9.5pt;
+                font-family: yekan, serif;
+            }
+
+            .details .left .right {
+                width: 415px;
+                float: right
+            }
+
+            .details .left .right h4 {
+                font-size: 9.8pt;
+                font-family: yekan, serif;
+            }
+
+            .details .left .left {
+                width: 300px;
+                float: left
+            }
+
+            .details .colors {
+                padding: 0;
+                float: right;
+                margin-bottom: 13px;
+                width: 100%
+            }
+
+            .details .colors li {
+                width: 46px;
+                height: 28px;
+                float: right;
+                margin-left: 6px;
+                border: 1px solid #CCC;
+                background: #EEE;
+                border-radius: 5px;
+                font-size: 9pt;
+                font-family: yekan, serif;
+                padding-right: 32px;
+                position: relative;
+                cursor: pointer
+            }
+
+            .details .colors li .circle {
+                width: 17px;
+                height: 17px;
+                border-radius: 50%;
+                display: block;
+                position: absolute;
+                right: 6px;
+                top: 5px
+            }
+
+            .details .colors li .rang {
+                position: absolute;
+                right: 36px;
+                top: 3px;
+                font-family: yekan, serif;
+                font-size: 10pt
+            }
+
+            .details .colors li .circle.active::after {
+                content: "";
+                width: 10px;
+                height: 10px;
+                position: absolute;
+                right: 4px;
+                top: 4px;
+                background: url("images/slices.png") no-repeat scroll -169px -83px;
+                display: block
+            }
+        </style>
+        <div class="left">
+            <div class="title">گوشی سامسونگ مدل xyz
+                <div class="stars text_center">
+                    <div class="star">
+                        <div class="gray">
+                            <div class="red"></div>
+                        </div>
+                    </div>
+                    <span class="rate">
+                    4 رای از 85 رای
+                </span>
+                </div>
+            </div>
+            <style>
+                .select_list {
+                    width: 390px;
+                    height: 37px;
+                    border: 1px solid #CCC;
+                    background: #EEE;
+                    position: relative;
+                    text-align: center;
+                    border-radius: 5px 5px 5px 5px;
+                    cursor: pointer
+                }
+
+                .select_list::before {
+                    content: "";
+                    width: 23px;
+                    height: 23px;
+                    display: block;
+                    position: absolute;
+                    right: 3px;
+                    top: 9px;
+                    background: url("images/slices.png") no-repeat scroll -138px -79px;
+                    border-radius: 5px 5px 0 0
+                }
+
+                .select_list::after {
+                    content: "";
+                    width: 22px;
+                    height: 17px;
+                    display: block;
+                    position: absolute;
+                    left: 3px;
+                    top: 13px;
+                    background: url("images/slices.png") no-repeat scroll -31px -461px;
+                    border-radius: 0 0 5px 5px
+                }
+
+                .select_list span {
+                    font-size: 9.7pt;
+                    line-height: 36px
+                }
+
+                .select_list ul {
+                    padding: 0;
+                    box-shadow: 0 2px 2px #CACACA;
+                    border-radius: 5px;
+                    display: none;
+                    background: #FFF
+                }
+
+                .select_list ul:hover {
+                    background: #F9F9F9;
+                    border-radius: 5px
+                }
+
+                .select_list ul li {
+                    font-family: yekan, serif;
+                    font-size: 10pt;
+                    padding: 2px 5px;
+                    padding-right: 10px;
+                    padding-bottom: 10px
+                }
+
+                .select_list ul li:hover {
+                    background: #EEE;
+                    border: 1px solid #CCC;
+                    border-radius: 5px
+                }
+            </style>
+            <h4>انتخاب گارانتی</h4>
+            <div class="select_list">
+                <span class="yekan zemanat_title">18 ماه گارانتی هما تلکام</span>
+                <ul>
+                    <li>گارانتی شماره 1</li>
+                    <li>گارانتی شماره 2</li>
+                    <li>گارانتی شماره 3</li>
+                </ul>
+            </div>
+            <style>
+                .price {
+                    float: right;
+                    width: 100%;
+                    margin-top: 50px
+                }
+
+                .price .discount {
+                    width: 135px;
+                    height: 22px;
+                    display: block;
+                    float: left;
+                    margin-left: 60%;
+                    font-family: yekan, serif;
+                    font-size: 9pt
+                }
+
+                .discount_right {
+                    width: 50px;
+                    height: 120%;
+                    float: right;
+                    display: block;
+                    background: red;
+                    color: #FFF;
+                    border-radius: 0 5px 5px 0;
+                    text-align: center;
+                    line-height: 26px
+                }
+
+                .discount_left {
+                    width: 85px;
+                    height: 120%;
+                    float: right;
+                    display: block;
+                    background: #FF5484;
+                    color: #FFF;
+                    border-radius: 5px 0 0 5px;
+                    text-align: center;
+                    line-height: 26px
+                }
+            </style>
+            <div class="price">
+                <span class="yekan" style="font-size: 9pt">قیمت:</span>
+                <span class="yekan" style="font-size: 11pt;text-decoration: line-through">100,000</span>
+                <span class="yekan" style="font-size: 9pt">تومان</span>
+                <span class="discount">
+                        <span class="discount_right">تخفیف</span>
+                        <span class="discount_left">256 هزار تومان</span>
+                    </span>
+            </div>
+            <style>
+                .price_for_you {
+                    float: right;
+                    width: 100%;
+                    margin-top: 30px
+                }
+
+                .compare {
+                    float: right;
+                    width: 100%;
+                    margin-top: 30px
+                }
+
+                .compare_btn {
+                    width: 155px;
+                    height: 40px;
+                    background: #CCC;
+                    border-radius: 4px;
+                    float: right;
+                    display: block;
+                    font-size: 12.4pt;
+                    color: #FFF;
+                    text-align: center;
+                    box-shadow: 0 2px 3px rgba(0, 0, 0, .15)
+                }
+
+                .addtocart_btn {
+                    width: 210px;
+                    height: 40px;
+                    background: green;
+                    border-radius: 4px;
+                    overflow: hidden;
+                    float: right;
+                    display: block;
+                    margin-right: 7px;
+                    font-size: 12.4pt;
+                    color: #FFF;
+                    text-align: center;
+                    box-shadow: 0 2px 3px rgba(0, 0, 0, .15)
+                }
+
+                .addtocart_btn i {
+                    width: 53px;
+                    height: 100%;
+                    display: block;
+                    float: right;
+                    background: #2ED017 url(images/slices.png) no-repeat scroll -145px -412px
+                }
+
+                .horizontal_row {
+                    background: #CCC;
+                    float: right;
+                    height: 1px;
+                    margin: 15px;
+                    width: 86%
+                }
+            </style>
+            <div class="price_for_you">
+                <span class="yekan" style="font-size: 12.5pt">قیمت برای شما</span>
+                <span class="yekan" style="font-size: 13.5pt;color: #0F0">90,000</span>
+                <span class="yekan" style="font-size: 9pt">تومان</span>
+            </div>
+            <div class="compare">
+                <span class="yekan compare_btn">مقایسه کن</span>
+                <span class="yekan addtocart_btn">
+                        <i></i>
+                        افزودن به سبد
+                    </span>
+            </div>
+            <div class="left"></div>
+            <div class="horizontal_row"></div>
+        </div>
+        <style>
+            .services-feature {
+                width: 695px;
+                background: #FFF;
+                height: 76px;
+                box-shadow: 0 5px 3px rgba(0, 0, 0, .2);
+                border-radius: 4px;
+                margin: 7px 0;
+                overflow: hidden;
+                float: left
+            }
+
+            .services-feature ul {
+                padding: 0;
+                height: 100%;
+
+            }
+
+            .services-feature ul li {
+                width: 140px;
+                float: right;
+                height: 100%
+            }
+
+            .services-feature ul li a {
+                display: block;
+                font-size: 10pt;
+                height: 100%;
+                line-height: 72px;
+                padding: 0 10px
+            }
+
+            .services-feature ul li a i {
+                width: 24px;
+                height: 24px;
+                display: inline-block;
+                background: url("images/slices.png") no-repeat
+            }
+        </style>
+        <div class="services-feature">
+            <ul>
+                <li>
+                    <a class="yekan">
+                        <i style="background-position: -210px -473px"></i>
+                        7 روز ضمانت بازگشت
+                    </a>
+                </li>
+                <li>
+                    <a class="yekan">
+                        <i style="background-position: -263px -473px"></i>
+                        پرداخت در محل
+                    </a>
+                </li>
+                <li>
+                    <a class="yekan">
+                        <i style="background-position: -158px -473px"></i>
+                        ضمانت اصل بودن کالا
+                    </a>
+                </li>
+                <li>
+                    <a class="yekan">
+                        <i style="background-position: -320px -473px;width: 30px"></i>
+                        تحویل اکسپرس
+                    </a>
+                </li>
+                <li>
+                    <a class="yekan">
+                        <i style="background-position: -103px -473px"></i>
+                        تضمین بهترین قیمت
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<style>
+    .introduction {
+        float: right;
+        width: 1180px;
+        margin-top: 20px;
+        padding: 10px;
+        background: #FFF;
+        border-radius: 5px;
+        box-shadow: 0 1px 3px #EEE;
+        height: 430px;
+        overflow: hidden;
+        position: relative
+    }
+
+    .introduction .more {
+        display: block;
+        text-align: center;
+        position: absolute;
+        top: 400px;
+        width: 100%;
+        font-family: yekan, serif;
+        font-size: 11pt;
+        cursor: pointer
+    }
+
+    .introduction span {
+        background: red;
+        color: #FFF;
+        border: 1px solid greenyellow;
+        border-radius: 5px;
+        position: relative;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, .2);
+    }
+
+    .introduction.active {
+        height: auto !important
+    }
+
+    .sliderscroll {
+        height: 310px;
+        width: 1200px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, .19);
+        background: #FFF;
+        border-radius: 4px;
+        overflow: hidden;
+        margin-top: 20px;
+        float: right
+    }
+
+    .sliderscroll h3 {
+        background: #F7F9FA;
+        height: 35px;
+        padding-right: 10px;
+        padding-top: 7px;
+        font-family: yekan, serif;
+        font-size: 10.5pt;
+        margin: 0;
+        font-weight: normal
+    }
+
+    .sliderscroll_content {
+        height: 268px
+    }
+
+    .sliderscroll_prev, .sliderscroll_next {
+        width: 55px;
+        height: 100%;
+        float: right
+    }
+
+    .sliderscroll_main {
+        width: 1090px;
+        height: 100%;
+        float: right;
+        overflow: hidden
+    }
+
+    .sliderscroll_prev .prev {
+        width: 15px;
+        right: 15px;
+        height: 42px;
+        background: url("images/slices.png") no-repeat;
+        background-position: -852px -677px;
+        display: block;
+        position: relative;
+        top: 100px;
+        cursor: pointer
+    }
+
+    .sliderscroll_next .next {
+        width: 15px;
+        right: 15px;
+        height: 42px;
+        background: url("images/slices.png") no-repeat;
+        background-position: -812px -677px;
+        display: block;
+        position: relative;
+        top: 100px;
+        cursor: pointer
+    }
+
+    .sliderscroll .sliderscroll_main ul {
+        padding: 0;
+        height: 100%
+    }
+
+    .sliderscroll .sliderscroll_main ul li {
+        padding: 0;
+        width: 218px;
+        height: 100%;
+        float: right
+    }
+
+    .sliderscroll .sliderscroll_main ul li a {
+        padding: 0;
+        display: block;
+        height: 100%;
+        text-align: center
+    }
+
+    .sliderscroll .price {
+        color: green;
+        font-size: 13pt
+    }
+
+    .sliderscroll p {
+        text-align: center;
+        margin-top: 1px;
+        margin-bottom: 1px
+    }
+</style>
+<div class="introduction">
+    <p style="font-size: 15pt;font-family: yekan, serif">معرفی اجمالی محصول</p>
+    <p style="font-size: 11pt;font-family: yekan, serif">توضیحات و معرفی محصول در این قسمت نوشته خواهد شد</p>
+    <a class="more">
+        <span>نمایش بیشتر</span>
+    </a>
+    <p style="font-size: 10pt;font-family: yekan, serif">فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا
+        فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی
+        کالا فروشگاه ایننترنتی دیجی کالا </p>
+    <p style="font-size: 10pt;font-family: yekan, serif">فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا
+        فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی
+        کالا فروشگاه ایننترنتی دیجی کالا </p>
+    <p style="font-size: 10pt;font-family: yekan, serif">فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا
+        فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی
+        کالا فروشگاه ایننترنتی دیجی کالا </p>
+    <p style="font-size: 10pt;font-family: yekan, serif">فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا
+        فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی
+        کالا فروشگاه ایننترنتی دیجی کالا </p>
+    <p style="font-size: 10pt;font-family: yekan, serif">فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا
+        فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی
+        کالا فروشگاه ایننترنتی دیجی کالا </p>
+    <p style="font-size: 10pt;font-family: yekan, serif">فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا
+        فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی
+        کالا فروشگاه ایننترنتی دیجی کالا </p>
+    <p style="font-size: 10pt;font-family: yekan, serif">فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا
+        فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی
+        کالا فروشگاه ایننترنتی دیجی کالا </p>
+    <p style="font-size: 10pt;font-family: yekan, serif">فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا
+        فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی
+        کالا فروشگاه ایننترنتی دیجی کالا </p>
+    <p style="font-size: 10pt;font-family: yekan, serif">فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا
+        فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی
+        کالا فروشگاه ایننترنتی دیجی کالا </p>
+    <p style="font-size: 10pt;font-family: yekan, serif">فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا
+        فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی
+        کالا فروشگاه ایننترنتی دیجی کالا </p>
+    <p style="font-size: 10pt;font-family: yekan, serif">فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا
+        فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی
+        کالا فروشگاه ایننترنتی دیجی کالا </p>
+    <p style="font-size: 10pt;font-family: yekan, serif">فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا
+        فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی
+        کالا فروشگاه ایننترنتی دیجی کالا </p>
+    <p style="font-size: 10pt;font-family: yekan, serif">فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا
+        فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی
+        کالا فروشگاه ایننترنتی دیجی کالا </p>
+    <p style="font-size: 10pt;font-family: yekan, serif">فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا
+        فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی
+        کالا فروشگاه ایننترنتی دیجی کالا </p>
+    <p style="font-size: 10pt;font-family: yekan, serif">فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا
+        فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی کالا فروشگاه ایننترنتی دیجی
+        کالا فروشگاه ایننترنتی دیجی کالا </p>
+</div>
+<div class="sliderscroll">
+    <h3>
+        فقط در دیجی کالا
+    </h3>
+    <div class="sliderscroll_content">
+        <div class="sliderscroll_prev">
+                    <span class="prev" onclick="sliderscroll('right',this)">
+                    </span>
+        </div>
+        <div class="sliderscroll_main">
+            <ul>
+                <li>
+                    <a>
+                        <img src="images/sliderscroll_1.jpg">
+                        <img src="images/exclusive-blue.png">
+                        <p class="yekan fontsm">
+                            لپ تاپ سونی
+                        </p>
+                        <p class="yekan price">
+                            1,200,000
+                        </p>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <img src="images/scrollslider_2.jpg">
+                        <img src="images/exclusive-blue.png">
+                        <p class="yekan fontsm">
+                            لپ تاپ acer
+                        </p>
+                        <p class="yekan price">
+                            1,200,000
+                        </p>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <img src="images/scrollslider_3.jpg">
+                        <img src="images/exclusive-blue.png">
+                        <p class="yekan fontsm">
+                            لپ تاپ asus
+                        </p>
+                        <p class="yekan price">
+                            1,200,000
+                        </p>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <img src="images/scrollslider_4.jpg">
+                        <img src="images/exclusive-blue.png">
+                        <p class="yekan fontsm">
+                            لپ تاپ clicksite.ir
+                        </p>
+                        <p class="yekan price">
+                            1,200,000
+                        </p>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <img src="images/scrollslider_5.jpg">
+                        <img src="images/exclusive-blue.png">
+                        <p class="yekan fontsm">
+                            لپ تاپ lenovo
+                        </p>
+                        <p class="yekan price">
+                            1,200,000
+                        </p>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <img src="images/scrollslider_5.jpg">
+                        <img src="images/exclusive-blue.png">
+                        <p class="yekan fontsm">
+                            لپ تاپ lenovo
+                        </p>
+                        <p class="yekan price">
+                            1,200,000
+                        </p>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <img src="images/scrollslider_5.jpg">
+                        <img src="images/exclusive-blue.png">
+                        <p class="yekan fontsm">
+                            لپ تاپ lenovo
+                        </p>
+                        <p class="yekan price">
+                            1,200,000
+                        </p>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <img src="images/scrollslider_5.jpg">
+                        <img src="images/exclusive-blue.png">
+                        <p class="yekan fontsm">
+                            لپ تاپ lenovo
+                        </p>
+                        <p class="yekan price">
+                            1,200,000
+                        </p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="sliderscroll_next">
+                     <span class="next" onclick="sliderscroll('left',this)">
+                    </span>
+        </div>
+    </div>
+</div>
+<style>
+    .tab {
+        width: 1200px;
+        float: right;
+        margin-top: 20px;
+        background: #F5F6F7;
+        padding: 0;
+        border-radius: 5px;
+        overflow: hidden
+    }
+
+    .tab li {
+        float: right;
+        padding: 10px;
+        padding-right: 37px;
+        font-size: 11.5pt;
+        font-family: yekan, serif;
+        border: 1px solid #EEE;
+        cursor: pointer;
+        position: relative
+    }
+
+    .tab li:before {
+        background: url("images/slices.png") no-repeat scroll 0 0;
+        width: 30px;
+        height: 26px;
+        content: "";
+        display: block;
+        position: absolute;
+        right: 3px;
+        top: 9px
+    }
+
+    .tab .naghd::before {
+        background-position: -105px -266px
+    }
+
+    .tab .moshakhasat::before {
+        background-position: -315px -266px
+    }
+
+    .tab .nazarat::before {
+        background-position: -261px -266px
+    }
+
+    .tab .porsesh::before {
+        background-position: -210px -266px
+    }
+
+    .tab .foroosh::before {
+        background-position: -105px -266px
+    }
+
+    .tab .sabte::before {
+        background-position: -315px -266px
+    }
+
+    .tab .garanti::before {
+        background-position: -261px -266px
+    }
+
+    .tab .rafee::before {
+        background-position: -210px -266px
+    }
+
+    .tab .naghd:active::before {
+        background-position: -105px -308px
+    }
+
+    .tab .moshakhasat:active::before {
+        background-position: -315px -308px
+    }
+
+    .tab .nazarat:active::before {
+        background-position: -261px -308px
+    }
+
+    .tab .porsesh:active::before {
+        background-position: -210px -308px
+    }
+
+    .tab .foroosh:active::before {
+        background-position: -105px -308px
+    }
+
+    .tab .sabte:active::before {
+        background-position: -315px -308px
+    }
+
+    .tab .garanti:active::before {
+        background-position: -261px -308px
+    }
+
+    .tab .rafee:active::before {
+        background-position: -210px -308px
+    }
+
+    .tab li.active {
+        background: #FDFDEE;
+        border-top: 1px solid blue;
+        box-shadow: 0 -2px 4px rgba(0, 0, 0, .2);
+        border-radius: 5px 5px 0 0;
+        border-bottom: 1px dashed rgba(0, 0, 0, .2);
+        color: #210000
+    }
+</style>
+<ul class="tab">
+    <li class="naghd active">نقد و بررسی تخصصی</li>
+    <li class="moshakhasat">مشخصات فنی</li>
+    <li class="nazarat">نظرات کاربران</li>
+    <li class="porsesh">پرسش و پاسخ</li>
+</ul>
+<style>
+    .tabchilds {
+        width: 1200px;
+        float: right;
+        background: #FFF
+    }
+
+    .tabchilds section {
+        display: none;
+        padding: 10px;
+        font-family: yekan, serif;
+        font-size: 12pt;
+        padding-bottom: 20px;
+        float: right;
+        width: 100%
+    }
+
+    .tabchilds section:first-child {
+        display: block
+    }
+
+    .tabchilds .item {
+        padding: 0
+    }
+
+    .tabchilds .item h4 {
+        font-size: 13.5pt;
+        font-family: yekan, serif;
+        margin: 0;
+        position: relative;
+        padding: 5px 25px 5px 0;
+        line-height: 40px;
+        cursor: pointer
+    }
+
+    .tabchilds .item h4::after {
+        width: 100%;
+        height: 1px;
+        background: #EEE;
+        position: absolute;
+        top: 28px;
+        left: 0;
+        content: "";
+        display: block
+    }
+
+    .tabchilds .item:last-child h4::after {
+        top: 28px
+    }
+
+    .tabchilds .item h4 span {
+        z-index: 1;
+        position: relative;
+        background: #FFF;
+        top: 3px
+    }
+
+    .tabchilds .item h4 i {
+        background: url("images/slices.png") no-repeat scroll -259px -606px;
+        width: 31px;
+        height: 56px;
+        display: block;
+        position: absolute;
+        right: -17px;
+        top: -1px
+    }
+
+    .tabchilds .item h4.active i {
+    }
+
+    .tabchilds .item:first-child h4 i {
+        background: url("images/slices.png") no-repeat scroll -153px -615px;
+        width: 31px;
+        height: 44px;
+        display: block;
+        position: absolute;
+        right: -16px;
+        top: 12px
+    }
+
+    .tabchilds .item:first-child h4.active i {
+        background: url("images/slices.png") no-repeat scroll -98px -615px
+    }
+
+    .tabchilds .item:last-child h4 i {
+        background: url("images/slices.png") no-repeat scroll -313px -615px;
+        width: 31px;
+        height: 44px;
+        display: block;
+        position: absolute;
+        right: -17px;
+        top: 3px
+    }
+
+    .tabchilds .item:last-child h4.active i {
+        background: url("images/slices.png") no-repeat scroll -207px -606px
+    }
+
+    .item_container {
+        margin-right: 30px;
+        border-right: 3px solid #F0F1F2;
+        margin-top: 10px;
+        height: 229px
+    }
+
+    .item_container .item .description {
+        display: none
+    }
+</style>
+<div class="tabchilds">
+    <section>
+        <div class="item_container">
+            <div class="item">
+                <h4>
+                    <i></i>
+                    <span> طراحی و ساخت</span>
+                </h4>
+                <div class="description">
+                    <p>توضیحات طراحی و ساخت</p>
+                    <p>توضیحات طراحی و ساخت</p>
+                    <p>توضیحات طراحی و ساخت</p>
+                </div>
+            </div>
+            <div class="item">
+                <h4>
+                    <i></i>
+                    <span>صفحه نمایش</span>
+                </h4>
+                <div class="description">
+                    <p>توضیحات صفحه نمایش</p>
+                    <p>توضیحات صفحه نمایش</p>
+                    <p>توضیحات صفحه نمایش</p>
+                </div>
+            </div>
+            <div class="item">
+                <h4>
+                    <i></i>
+                    <span>سخت افزار و باطری</span>
+                </h4>
+                <div class="description">
+                    <p>توضیحات سخت افزار و باطری</p>
+                    <p>توضیحات سخت افزار و باطری</p>
+                    <p>توضیحات سخت افزار و باطری</p>
+                </div>
+            </div>
+            <div class="item">
+                <h4>
+                    <i></i>
+                    <span>تعمیرات دستگاه</span>
+                </h4>
+                <div class="description">
+                    <p>توضیحات تعمیرات دستگاه</p>
+                    <p>توضیحات تعمیرات دستگاه</p>
+                    <p>توضیحات تعمیرات دستگاه</p>
+                </div>
+            </div>
+            <div class="item">
+                <h4>
+                    <i></i>
+                    <span>گارانتی دستگاه</span>
+                </h4>
+                <div class="description">
+                    <p>توضیحات گارانتی دستگاه</p>
+                    <p>توضیحات گارانتی دستگاه</p>
+                    <p>توضیحات گارانتی دستگاه</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+        .section_fanni h4 {
+            font-size: 13.5pt;
+            font-family: yekan, serif;
+        }
+
+        .section_fanni .row {
+            width: 100%;
+            float: right;
+            margin-bottom: 10px
+        }
+
+        .section_fanni .row .right {
+            width: 255px;
+            float: right;
+            background: #EFEFEF;
+            font-family: yekan, serif;
+            font-size: 10pt;
+            padding: 5px;
+            margin-left: 20px;
+            border-radius: 4px
+        }
+
+        .section_fanni .row .left {
+            width: 880px;
+            float: right;
+            background: #F7F9FA no-repeat scroll 0 0;
+            padding: 5px;
+            font-family: yekan, serif;
+            font-size: 10pt;
+            border-radius: 4px
+        }
+    </style>
+    <section class="section_fanni">
+        <h4>مشخصات فیزیکی</h4>
+        <div class="row">
+            <div class="right">ابعاد</div>
+            <div class="left">200 میلیمتر در 300 میلیمتر</div>
+        </div>
+        <div class="row">
+            <div class="right">وزن</div>
+            <div class="left">280 گرم</div>
+        </div>
+        <h4>پردازنده</h4>
+        <div class="row">
+            <div class="right">قدرت پردازنده</div>
+            <div class="left">10 هسته ای</div>
+        </div>
+    </section>
+    <style>
+        .comments_result {
+            width: 510px;
+            float: right
+        }
+
+        .comments_result p {
+            font-size: 13.5pt;
+            font-family: yekan, serif
+        }
+
+        .comments_result span {
+            font-size: 11pt;
+            font-family: yekan, serif
+        }
+
+        .comment_send {
+            width: 630px;
+            float: right;
+            margin-right: 10px
+        }
+
+        .navbar .row {
+            width: 100%;
+            float: right
+        }
+
+        .navbar .row .title {
+            font-size: 10.3pt;
+            float: right;
+            width: 155px;
+            display: block
+        }
+
+        .navbar ul {
+            padding: 0;
+            height: 10px;
+            float: right;
+            margin-right: 10px;
+            margin-top: 7px
+        }
+
+        .navbar ul li {
+            width: 64px;
+            height: 100%;
+            float: right;
+            background: #EEE;
+            border-left: 1px solid #FFF
+        }
+
+        .navbar ul li span {
+            display: block;
+            height: 100%;
+            background: green;
+        }
+
+        .navbar ul li span.full {
+            width: 100%
+        }
+    </style>
+    <section>
+        <div class="comments_result navbar">
+            <p>امتیاز کاربران به:
+                <span>گوشی سامسونگ مدل xyz</span>
+            </p>
+            <div class="row">
+                <span class="title">ارزش خرید به نسبت قیمت</span>
+                <ul>
+                    <li>
+                        <span class="full"></span>
+                    </li>
+                    <li>
+                        <span style="width: 20%"></span>
+                    </li>
+                    <li>
+                        <span></span>
+                    </li>
+                    <li>
+                        <span></span>
+                    </li>
+                    <li>
+                        <span></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="row">
+                <span class="title">نو آوری</span>
+                <ul>
+                    <li>
+                        <span class="full"></span>
+                    </li>
+                    <li>
+                        <span style="width: 40%"></span>
+                    </li>
+                    <li>
+                        <span></span>
+                    </li>
+                    <li>
+                        <span></span>
+                    </li>
+                    <li>
+                        <span></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <style>
+            .comment_send .ersale_nazar {
+                background: #208DE6 no-repeat scroll 0 0;
+                display: block;
+                float: left;
+                height: 38px;
+                margin-left: 28px;
+                margin-top: 2px;
+                width: 110px;
+                box-shadow: 0 2px 3px rgba(0, 0, 0, .2);
+                text-align: center;
+                color: #FFF;
+                font-family: yekan, serif;
+                line-height: 32px;
+                font-size: 10pt;
+                border-radius: 5px
+            }
+        </style>
+        <div class="comment_send">
+            <p style="font-size: 13.5pt"> شما هم می توانید نظر خود را ارسال نمائید</p>
+            <p style="font-size: 11pt"> شما هم می توانید نظر خود را ارسال نمائید</p>
+            <div class="ersale_nazar">
+                <span class="btn">ارسال نظر</span>
+            </div>
+        </div>
+        <style>
+            .comments {
+                float: right;
+                width: 98%
+            }
+
+            .comments .comment {
+                float: right;
+                width: 100%;
+                box-shadow: 0 2px 3px rgba(0, 0, 0, .15);
+                border-radius: 2px;
+                overflow: hidden;
+                margin-bottom: 8px
+
+            }
+
+            .comments .comment .comment_header {
+                height: 57px;
+                background: #EEE;
+                font-family: yekan, serif;
+                padding: 0 15px
+            }
+
+            .comments .comment .comment_header .right {
+                float: right;
+                margin-top: 3px
+            }
+
+            .comments .comment .comment_header .left {
+                float: left;
+                margin-top: 3px
+            }
+
+            .comments .comment .comment_header .right span {
+                display: block
+            }
+
+            .comments .comment .comment_header .left span {
+                float: left;
+                display: block;
+                margin-right: 8px;
+                font-size: 10.6pt;
+                margin-top: 13px
+            }
+
+            .comments .comment .comment_header .left .like {
+                width: 65px;
+                height: 25px;
+                background: #FFF;
+                border-radius: 3px
+            }
+
+            .comments .comment .comment_header .left .like span {
+                margin: 0;
+                margin-left: 10px
+            }
+
+            .comments .comment .comment_header .left .like i {
+                width: 20px;
+                height: 20px;
+                display: block;
+                float: right;
+                margin-right: 3px;
+                margin-top: 5px;
+                background: url(images/slices.png) no-repeat scroll -305px -190px
+            }
+
+            .comments .comment .comment_header .left .dislike {
+                width: 65px;
+                height: 25px;
+                background: #FFF;
+                border-radius: 3px
+            }
+
+            .comments .comment .comment_header .left .dislike span {
+                margin: 0;
+                margin-left: 10px
+            }
+
+            .comments .comment .comment_header .left .dislike i {
+                width: 20px;
+                height: 20px;
+                display: block;
+                float: right;
+                margin-right: 3px;
+                margin-top: 5px;
+                background: url(images/slices.png) no-repeat scroll -267px -193px
+            }
+        </style>
+        <div class="comments">
+            <p style="font-size: 13pt">نظرات کاربران</p>
+            <div class="horizontal_row"></div>
+            <div class="comment">
+                <div class="comment_header">
+                    <div class="right">
+                        <span class="name" style="font-size: 12.8pt">کلیک سایت</span>
+                        <span class="date" style="font-size: 9pt">22 تیر 1300</span>
+                    </div>
+                    <div class="left">
+                            <span class="dislike">
+                                <i></i>
+                                <span>20</span>
+                            </span>
+                        <span class="like">
+                                <i></i>
+                                <span>10</span>
+                            </span>
+                        <span>  آیا این نظر مفید بود؟</span>
+                    </div>
+                </div>
+                <style>
+                    .comments .comment .comment_content {
+                        float: right;
+                        width: 98%;
+                        padding: 10px
+                    }
+
+                    comments .comment .comment_content .right {
+                        float: right;
+                        width: 400px
+                    }
+                </style>
+                <div class="comment_content">
+                    <div class="right">
+                        <div class="navbar">
+                            <div class="row">
+                                <span class="title">نو آوری</span>
+                                <ul>
+                                    <li>
+                                        <span class="full"></span>
+                                    </li>
+                                    <li>
+                                        <span style="width: 40%"></span>
+                                    </li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                            <div class="row">
+                                <span class="title">کیفیت دوربین</span>
+                                <ul>
+                                    <li>
+                                        <span class="full"></span>
+                                    </li>
+                                    <li>
+                                        <span style="width: 50%"></span>
+                                    </li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                            <div class="row">
+                                <span class="title">دارای دو سیم کارت</span>
+                                <ul>
+                                    <li>
+                                        <span class="full"></span>
+                                    </li>
+                                    <li>
+                                        <span style="width: 60%"></span>
+                                    </li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                            <div class="row">
+                                <span class="title">حافظه پذیر</span>
+                                <ul>
+                                    <li>
+                                        <span class="full"></span>
+                                    </li>
+                                    <li>
+                                        <span style="width: 70%"></span>
+                                    </li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                            <div class="row">
+                                <span class="title">ضد آب بودن</span>
+                                <ul>
+                                    <li>
+                                        <span class="full"></span>
+                                    </li>
+                                    <li>
+                                        <span style="width: 80%"></span>
+                                    </li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <style>
+                        .comments .comment .comment_content .left {
+                            width: 630px;
+                            float: left;
+                            margin-top: -207px
+                        }
+
+                        .comments .comment .comment_content .left .top {
+                            font-size: 13.3pt
+                        }
+
+                        .comments .comment .comment_content .left .center {
+                            float: right;
+                            width: 100%
+                        }
+
+                        .comments .comment .comment_content .left .bottom {
+                            font-size: 11pt
+                        }
+
+                        .ghovvat {
+                            width: 280px;
+                            float: right;
+                            color: green;
+                            font-size: 10.5pt
+                        }
+
+                        .zaaf {
+                            width: 280px;
+                            float: right;
+                            margin-right: 15px;
+                            color: red;
+                        }
+                    </style>
+                    <div class="left">
+                        <div class="top">حیف که دو سیم کارته نبود</div>
+                        <div class="center">
+                            <div class="ghovvat">
+                                <p style="color: green">نقاط قوت</p>
+                                <p>بدنه مستحکم</p>
+                                <p>شارژ زیاد نگه می دارد</p>
+                            </div>
+                            <div class="zaaf">
+                                <p style="color: red">نقاط ضعف</p>
+                                <p>تک سیم کارته</p>
+                            </div>
+                        </div>
+                        <div class="bottom">من این محصول را خریداری کردم و بسیار راضی بودم....</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+        .questions {
+            font-family: yekan, serif
+        }
+
+        .questions h4 {
+            font-size: 11pt
+        }
+
+        .question_text {
+            border: 1px solid #CCC;
+            border-radius: 4px;
+            height: 190px;
+            width: 98%
+        }
+
+        .questions .email .btn {
+            background: #208DE6 no-repeat scroll 0 0;
+            display: block;
+            float: left;
+            height: 38px;
+            margin-left: 18px;
+            margin-top: 10px;
+            width: 110px;
+            box-shadow: 0 2px 3px rgba(0, 0, 0, .2);
+            text-align: center;
+            color: #FFF;
+            font-family: yekan, serif;
+            line-height: 32px;
+            font-size: 10pt;
+            border-radius: 5px;
+            cursor: pointer
+        }
+
+        .row {
+            float: right;
+            width: 100%;
+            margin-bottom: 20px
+        }
+
+        .question .question_header {
+            height: 35px;
+            background: #CCC
+        }
+
+        .question .question_header i {
+            float: right;
+            margin-right: 7px;
+            background: url("images/slices.png") no-repeat scroll -284px -126px;
+            width: 24px;
+            height: 24px;
+            display: block;
+            margin-top: 6px
+        }
+
+        .question .question_header .title {
+            float: right;
+            font-size: 10pt;
+            margin-right: 6px;
+            margin-top: 3px
+        }
+
+        .question .question_header .date {
+            float: left;
+            font-size: 10pt;
+            margin-left: 6px;
+            margin-top: 3px
+        }
+
+        .question .question_header .name {
+            float: left;
+            font-size: 10pt;
+            margin-left: 6px;
+            margin-top: 3px
+        }
+
+        .question .question_content {
+            background: #EEE
+        }
+
+        .question .questions_container {
+            width: 98%
+        }
+
+        .question_content p {
+            font-size: 11.5pt
+        }
+
+        .questions .question {
+            box-shadow: 0 2px 3px rgba(0, 0, 0, .15);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 8px
+        }
+    </style>
+    <section class="questions">
+        <h4>پرسش خود را مطرح نمائید</h4>
+        <textarea class="question_text"></textarea>
+        <div class="row">
+            <div class="email" style="text-align: left">
+                <span class="btn">ثبت پرسش</span>
+            </div>
+        </div>
+        <h4>پرسش خود را مطرح نمائید</h4>
+        <div class="horizontal_row"></div>
+        <div class="questions_container row">
+            <div class="question">
+                <div class="question_header">
+                    <i></i>
+                    <span class="title">پرسش</span>
+                    <span class="date"> تیر ماه 1300</span>
+                    <span class="name">کلیک سایت -</span>
+
+                </div>
+                <div class="question_content">
+                    <p>سلام می خواستم بپرسم دوستانی که اندروید این گوشی را به نسخه 6 آپدیت کردند، آیا مشکلی برای
+                        برایشان به وجود آورد؟ خواهشمند است مرا راهنمائی بفرمائید. متشکرم</p>
+                </div>
+            </div>
+        </div>
+        <div class="questions_container row">
+            <div class="question">
+                <div class="question_header">
+                    <i></i>
+                    <span class="title">پرسش</span>
+                    <span class="date"> تیر ماه 1300</span>
+                    <span class="name">کلیک سایت -</span>
+
+                </div>
+                <div class="question_content">
+                    <p>سلام می خواستم بپرسم دوستانی که اندروید این گوشی را به نسخه 6 آپدیت کردند، آیا مشکلی برای
+                        برایشان به وجود آورد؟ خواهشمند است مرا راهنمائی بفرمائید. متشکرم</p>
+                </div>
+            </div>
+        </div>
+        <div class="questions_container row">
+            <div class="question">
+                <div class="question_header">
+                    <i></i>
+                    <span class="title">پرسش</span>
+                    <span class="date"> تیر ماه 1300</span>
+                    <span class="name">کلیک سایت -</span>
+
+                </div>
+                <div class="question_content">
+                    <p>سلام می خواستم بپرسم دوستانی که اندروید این گوشی را به نسخه 6 آپدیت کردند، آیا مشکلی برای
+                        برایشان به وجود آورد؟ خواهشمند است مرا راهنمائی بفرمائید. متشکرم</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+<script>
+    /* Tab Under */
+    $('.item_container .item h4').click(function () {
+        var item = $(this).parents('.item')
+        $(this).toggleClass('active')
+        $('.description', item).slideToggle(200)
+    })
+    /* Tab */
+    $('.tab li').click(function () {
+        $('.tab li').removeClass('active')
+        $(this).addClass('active')
+        var tabchildssection = $('.tabchilds section')
+        tabchildssection.fadeOut(0)
+        var index = $(this).index()
+        tabchildssection.eq(index).fadeIn(200)
+    })
+
+    /* Sliderscroll */
+    function sliderscroll(direction, tag) {
+        var span_tag = $(tag)
+        var sliderScroll = span_tag.parents('.sliderscroll')
+        var sliderScrollTagUi = sliderScrollTag.find('.sliderscroll_main ul')
+        var sliderScrollItems = sliderScrollUl.find('li')
+        var sliderScrollItemsNumbers = sliderScrollItems.length('li')
+        var sliderScrollNumbers = Math.ceil(sliderScrollItemsNumbers / 5)
+        var maxNegativeMargin = -(sliderScrollNumbers - 1) * 1090
+        sliderScrollUl.css('width', sliderScrollItemsNumbers * 218)
+        var marginRightNew
+        var marginRightOld = sliderScrollUl.css('margin-right')
+        marginRightOld = parseFloat(marginRightOld)
+        if (direction === 'left') {
+            marginRightNew = marginRightOld - 1090
+        }
+        if (direction === 'right') {
+            marginRightNew = marginRightOld + 1090
+        }
+        alert(marginRightNew)
+        if (marginRightNew < maxNegativeMargin) {
+            marginRightNew = 0
+        }
+        if (marginRightNew > 0) {
+            marginRightNew = maxNegativeMargin
+        }
+        sliderScrollUl.animate({'margin-right': marginRightNew}, 1000)
+    }
+
+    $('.next').click(function () {
+        sliderscroll('left')
+    })
+    $('.prev').click(function () {
+        sliderscroll('right')
+    })
+    /* More */
+    $('.introduction .more').click(function () {
+        $('.introduction').toggleClass('active')
+    })
+    /* Select List */
+    $('.select_list').click(function () {
+        var ul_tag = $('ul', this)
+        ul_tag.slideToggle(200)
+    })
+    $('.select_list ul li').click(function () {
+        var txt = $(this).text()
+        $('.select_list .zemanat_title').text(txt)
+    })
+    /* Color Select */
+    $('.colors li').click(function () {
+        $('.circle', this).addClass('active')
+        $('.circle').removeClass('active')
+    })
+    /* Timer */
+    $('.flipTimer').flipTimer({
+        direction: "down",
+        date: 'July 03,2016 16:51:45',
+        callback: function () {
+            $('.slider2_content_right').css('opacity', .4)
+            $('.slider2_content_left').css('opacity', .4)
+            $('.slider2_finished').fadeIn(200)
+        }
+    })
+</script>
+<style>
+    footer {
+        height: 300px;
+        float: right;
+        margin-top: 40px;
+        width: 100%
+    }
+
+    .footer_top {
+        background: #6D717A none repeat scroll 0 0;
+        height: 45px
+    }
+
+    .footer_bottom {
+        height: 255px;
+        background: #F7F8FA none repeat scroll 0 0
+    }
+
+    .footer .main {
+        width: 1200px;
+        height: 100%;
+        margin: auto
+    }
+
+    .footer_top span {
+        color: #FFF;
+    }
+
+    .footer_top i {
+        width: 17px;
+        height: 17px;
+        background: url("images/slices.png") no-repeat scroll 0 0;
+        display: inline-block
+    }
+
+    .footer_top ul {
+        padding: 0;
+        float: left;
+        height: 100%
+    }
+
+    .footer_top li {
+        float: right;
+        height: 100%;
+        margin-left: 15px
+    }
+
+    .footer_top a {
+        color: #FFF;
+        line-height: 42px
+    }
+</style>
+<footer>
+    <div class="footer_top">
+        <div class="main">
+            <span class="yekan fontlg">7 روز هفته، 24ساعته پاسخگوی شما هستیم</span>
+            <ul>
+                <li>
+                    <a class="yeckan">021-999999
+                        <i style="background-position: -397px -420px"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="yeckan">سوالات متداول
+                        <i style="background-position: -358px -420px"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="yeckan">support@clicksite.ir
+                        <i style="background-position: -321px -420px"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <style>
+        .footer_bottom .right {
+            width: 220px;
+            height: 100%;
+            float: right
+        }
+
+        .footer_bottom .center {
+            width: 220px;
+            height: 100%;
+            float: right
+        }
+
+        .footer_bottom .left {
+            width: 220px;
+            height: 100%;
+            float: left
+        }
+
+        .footer_bottom ul li {
+            font-family: yekan, serif;
+            font-size: 11.3pt;
+            line-height: 58px
+        }
+
+        .footer_bottom .title {
+            font-size: 14pt
+        }
+
+        .footer_bottom .email input {
+            width: 430px;
+            height: 38px;
+            border: 1px solid #CCC;
+            font-family: yekan, serif
+        }
+
+        .footer_bottom .email .btn {
+            background: #208DE6 no-repeat scroll 0 0;
+            display: block;
+            float: left;
+            height: 38px;
+            margin-left: 28px;
+            margin-top: 2px;
+            width: 110px;
+            box-shadow: 0 2px 3px rgba(0, 0, 0, .2);
+            text-align: center;
+            color: #FFF;
+            font-family: yekan, serif;
+            line-height: 32px;
+            font-size: 10pt;
+            border-radius: 5px
+        }
+
+        .footer .social {
+            float: left;
+            margin-top: 26px;
+            width: 100%
+        }
+
+        .footer .social img {
+            float: left;
+            margin-left: 4px
+        }
+
+        .social_button {
+            width: 28px;
+            height: 28px;
+            display: block;
+            float: right;
+            background: url("images/slices.png") no-repeat scroll 0 0
+        }
+    </style>
+    <div class="footer_bottom">
+        <div class="main">
+            <div class="right">
+                <ul>
+                    <li>
+                        <a class="title">راهنمای خرید از دیجی کالا</a>
+                    </li>
+                    <li>
+                        <a>ثبت سفارش</a>
+                    </li>
+                    <li>
+                        <a>رویه های ارسال سفارش</a>
+                    </li>
+                    <li>
+                        <a>شیوه های پرداخت</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="center">
+            <ul>
+                <li>
+                    <a class="title">راهنمای خرید مشتریان</a>
+                </li>
+                <li>
+                    <a>ثبت سفارش</a>
+                </li>
+                <li>
+                    <a>رویه های ارسال سفارش</a>
+                </li>
+                <li>
+                    <a>شیوه های پرداخت</a>
+                </li>
+            </ul>
+        </div>
+        <div class="left">
+            <p class="title yekan">اولین نفری که مطلع می شود، باشید!</p>
+            <div class="email">
+                <input type="text">
+                <span class="btn">تایید ایمیل</span>
+            </div>
+            <div class="social">
+                <a>
+                    <img src="images/android_app_bg.png">
+                </a>
+                <a>
+                    <img src="images/ios_app_bg.png">
+                </a>
+            </div>
+            <span class="social_button" style="background-position: -577px -621px"></span>
+            <span class="social_button" style="background-position: -453px -621px"></span>
+            <span class="social_button" style="background-position: -577px -621px"></span>
+        </div>
+    </div>
+</footer>
+<script>
+    var timer = {}
+    $('.menu_top li').hover(function () {
+        var tag = $(this)
+        var timerAttr = tag.attr('data-time')
+        clearTimeout(timer[timerAttr])
+        timer[timerAttr] = setTimeout(function () {
+            $('> ul', tag).fadeIn(0)
+            tag.addClass('active-menu')
+            $('> .submenu3', tag).fadeIn(0)
+        }, 500)
+    }, function () {
+        var tag = $(this)
+        var timerAttr = tag.attr('data-time')
+        clearTimeout(timer[timerAttr])
+        timer[timerAttr] = setTimeout(function () {
+            $('> ul', tag).fadeOut(0)
+            tag.removeClass('active-menu')
+            $('> .submenu3', tag).fadeOut(0)
+        }, 600)
+    })
+</script>
+<style>
+    .product_gallery {
+        width: 900px;
+        height: 584px;
+        position: fixed;
+        background: #FFF;
+        right: 0;
+        left: 0;
+        margin: auto;
+        top: 21px;
+        z-index: 6;
+        border-radius: 5px;
+        display: none
+    }
+
+    .dark {
+        width: 100%;
+        position: fixed;
+        background: rgba(0, 0, 0, .3);
+        top: 0;
+        left: 0;
+        height: 100%;
+        z-index: 5;
+        display: none
+    }
+
+    .product_gallery h4 {
+        font-family: yekan, serif;
+        font-size: 11pt;
+        background: #EEE;
+        padding: 8px;
+        margin: 10px;
+        border-radius: 5px;
+        position: relative;
+        border: 1px solid #e4eae2;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, .2)
+    }
+
+    .product_gallery .close {
+        width: 28px;
+        height: 28px;
+        background: url("images/slices.png") no-repeat scroll -134px -122px;
+        position: absolute;
+        left: 4px;
+        top: 4px;
+        border-radius: 100%;
+        border: 1px solid #F7F8FA;
+        cursor: pointer;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, .2)
+    }
+
+    .product_gallery .right {
+        width: 700px;
+        float: right;
+        height: 515px;
+        position: absolute;
+        top: 115px;
+        left: 148px
+    }
+
+    .product_gallery .right .item {
+        width: 700px;
+        float: right;
+        height: 100%
+    }
+
+    .product_gallery .right img {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 5px
+    }
+
+    .product_gallery .left {
+        width: 197px;
+        float: left;
+        height: 524px;
+        border-right: 1px solid #CCC;
+        overflow-y: auto;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, .15);
+        border-radius: 5px
+    }
+
+    .product_gallery .left ul {
+        padding: 0;
+        width: 100%
+    }
+
+    .product_gallery .left ul li {
+        height: 130px;
+        border: 1px solid #CCC;
+        border-radius: 10px;
+        text-align: center;
+        cursor: pointer;
+        opacity: .6;
+    }
+
+    .product_gallery .left ul li.active {
+        opacity: .6 !important;
+    }
+
+    .product_gallery .left ul li img {
+        margin: 0 auto;
+        margin-top: 7px;
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 5px;
+    }
+
+    .product_gallery .right #cv {
+        margin: auto;
+        right: 133px;
+        position: relative;
+    }
+
+    .product_gallery .right .item {
+        display: none
+    }
+
+    .icon3d {
+        width: 28px;
+        height: 28px;
+        background: url("images/slices.png") no-repeat scroll -363px -117px;
+        display: block;
+        position: absolute;
+        left: 4px;
+        bottom: 4px
+    }
+
+</style>
+<div class="product_gallery">
+    <h4>گوشی سامسونگ مدل xyz
+        <span class="close"></span>
+    </h4>
+    <div class="right">
+        <canvas id="cv" width="420" height="320"></canvas>
+        <img class="mainimage" src="">
+    </div>
+    <div class="left">
+        <ul>
+            <li data-main-image="" style="position: relative">
+                <img src="images/note21_1_1.jpg">
+                <span class="icon3d"></span>
+            </li>
+            <li data-main-image="images/note21_1.jpg">
+                <img src="images/note21_1_1.jpg">
+            </li>
+            <li data-main-image="images/note21_2.jpg">
+                <img src="images/note21_2_2.jpg">
+            </li>
+            <li data-main-image="images/note21_3.jpg">
+                <img src="images/note21_3_3.jpg">
+            </li>
+            <li data-main-image="images/note21_4.jpg">
+                <img src="images/note21_4_4.jpg">
+            </li>
+            <li data-main-image="images/note21_5.jpg">
+                <img src="images/note21_5_5.jpg">
+            </li>
+            <li data-main-image="images/note21_6.jpg">
+                <img src="images/note21_6_6.jpg">
+            </li>
+            <li data-main-image="images/note21_7.jpg">
+                <img src="images/note21_7_7.jpg">
+            </li>
+            <li data-main-image="images/note21_8.jpg">
+                <img src="images/note21_8_8.jpg">
+            </li>
+            <li data-main-image="images/note21_9.jpg">
+                <img src="images/note21_9_9.jpg">
+            </li>
+            <li data-main-image="images/note21_10.jpg">
+                <img src="images/note21_10_10.jpg">
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="dark"></div>
+<script>
+    var canvasTag = document.getElementById('cv')
+    var viewer = new JSC3D.Viewer(canvasTag, {
+        SceneUrl: 'samsung/galaxys6.png',
+        InitRotationX: -100,
+        InitRotationY: -100,
+        InitRotationZ: 0,
+        RenderMode: 'texturesmooth'
+    })
+    viewer.init()
+    viewer.update()
+</script>
+<script>
+    var product_gallery = $('.product_gallery')
+    var product_gallery_items = product_gallery.find('.item')
+
+    function showGallery(imageUrl, index) {
+        product_gallery_thumbnails.removeClass('active')
+        product_gallery_thumbnails.eq(index).addClass('active')
+        if (imageUrl.length > 0) {
+            product_gallery.find('.mainimage').attr('src', imageUrl)
+            $('#cv').fadeOut(0)
+            $('.mainimage').fadeIn(0)
+        } else {
+            $('.mainimage').fadeOut(0)
+            $('#cv').fadeIn(100)
+        }
+    }
+
+    var product_gallery_thumbnails = product_gallery.find('.left ul li')
+    product_gallery_thumbnails.click(function () {
+        var index = $(this).index()
+        var mainImageUrl = $(this).attr('data-main-image')
+        showGallery(mainImageUrl, index)
+    })
+    product_gallery.find('.close').click(function () {
+        product_gallery.fadeOut(200)
+        $('.dark').fadeOut(200)
+    })
+    $('.gallery ul li').click(function () {
+        $('.dark').fadeIn(200)
+        product_gallery.fadeIn(200)
+        var index = $(this).index()
+        if (index < 0) {
+            index = 0
+        }
+        var mainImageUrl = $(this).attr('data-main-image')
+        showGallery(mainImageUrl, index)
+    })
+    /* Product Gallery Toolbar */
+    $('.product_gallery .left').mCustomScrollbar({
+        setWidth: false,
+        setHeight: false,
+        setTop: 0,
+        setLeft: 0,
+        axis: "y",
+        scrollbarPosition: "inside",
+        scrollInertia: 950,
+        autoDraggerLength: true,
+        autoHideScrollbar: true,
+        autoExpandScrollbar: false,
+        alwaysShowScrollbar: 0,
+        snapAmount: null,
+        snapOffset: 0,
+        mouseWheel: {
+            enable: true,
+            scrollAmount: "auto",
+            axis: "y",
+            preventDefault: false,
+            deltaFactor: "auto",
+            normalizeDelta: false,
+            invert: false,
+            disableOver: ["select", "option", "keygen", "datalist", "textarea"]
+        },
+        scrollButtons: {
+            enable: true,
+            scrollType: "stepless",
+            scrollAmount: "auto"
+        },
+        keyboard: {
+            enable: true,
+            scrollType: "stepless",
+            scrollAmount: "auto"
+        },
+        contentTouchScroll: 25,
+        advanced: {
+            autoExpandHorizontalScroll: false,
+            autoScrollOnFocus: "input,textarea,select,button,datalist,keygen,a[tabindex],area,object,[contenteditable='true']",
+            updateOnContentResize: true,
+            updateOnImageLoad: true,
+            updateOnSelectorChange: false,
+            releaseDraggableSelectors: false
+        },
+        theme: "3d-thick-dark",
+        callbacks: {
+            onInit: false,
+            onScrollStart: false,
+            onScroll: false,
+            onTotalScroll: false,
+            onTotalScrollBack: false,
+            whileScrolling: false,
+            onTotalScrollOffset: 0,
+            onTotalScrollBackOffset: 0,
+            alwaysTriggerOffsets: true,
+            onOverflowY: false,
+            onOverflowX: false,
+            onOverflowYNone: false,
+            onOverflowXNone: false
+        },
+        live: false,
+        liveSelector: null
+    })
+</script>
+</body>
+</html>
